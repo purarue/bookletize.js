@@ -25,7 +25,7 @@ async function createPdf(existingPdfBytes, outputFile, options) {
     page.moveTo(width/2, height/2);
     page.drawText("Page " + pageCount, {
       size: 7,
-      color: rgb(1,1,1)
+      color: PDFLib.rgb(1,1,1)
     });
   }
   // console.log(pageCount, "pages padded to multiple of 4");
