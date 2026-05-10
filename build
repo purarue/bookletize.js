@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+command -v node >/dev/null 2>&1 || {
+	echo 'Could not find node, install that and re-run install' >&2
+	exit 1
+}
+
+# change to current dir
+if ! cd "$(realpath "$(dirname "${BASH_SOURCE[0]}")")"; then
+	echo "Could not cd to the repo root directory" >&2
+	exit 1
+fi
+cur_dir="$(pwd)"
+
+# pull dependencies
+npm install
+
+# Create wrapper script
+script_name="${cur_dir}/saddlestitch"
+(
+	echo '#!/usr/bin/env bash'
+	cat ./script.bash
+  # shellcheck disable=SC2016
+  printf '%s/saddlestitch.js "$1" "$2" || exit $?' "$cur_dir"
+) >"${script_name}"
+chmod +x "${script_name}"
+echo "Copy ${script_name} to somewhere on your \$PATH"
