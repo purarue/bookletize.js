@@ -1,4 +1,4 @@
-usage="Converts a pdf to saddlestitch (zine format)
+usage="Converts a pdf to saddlestitch (zine) format
 
 Usage:
   saddlestitch <INPUT_PDF> <OUTPUT_PDF>
