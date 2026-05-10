@@ -7,7 +7,7 @@ Demo: https://jywarren.github.io/bookletize.js
 
 NPM: http://npmjs.com/package/bookletize.js
 
-===
+---
 
 This provides a CLI script `saddlestitch.js` and a `Makefile` to help install it.
 
